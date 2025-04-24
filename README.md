@@ -42,7 +42,7 @@ Um tutorial completo e passo a passo para criar um chat web com Inteligência Ar
 - ✅ Código comentado: `app.py`, `index.html`, `style.css`  
 - ✅ Ideal para estudos, prototipagem e uso real
 
-> 🔗 Acesse o projeto: `tutorial-chat-ia-gemini-flask/`
+> 🔗 Acesse o projeto: [Tutorial Completo – Chat com IA (Google Gemini API + Flask)](https://github.com/george-mendonca/AI-Labs/tree/main/gemini_app)
 
 ---
 
