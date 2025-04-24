@@ -1,0 +1,4 @@
+# Ignorar arquivos específicos
+tutorial-completo.txt
+# Ignorar a pasta inteira venv na raiz
+/venv/
