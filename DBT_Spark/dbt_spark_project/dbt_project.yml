@@ -1,0 +1,21 @@
+name: 'dbt_spark_project'
+version: '1.0'
+config-version: 2
+
+profile: 'dbt_spark_project'
+
+model-paths: ["models"]
+analysis-paths: ["analysis"]
+test-paths: ["tests"]
+seed-paths: ["data"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+target-path: "target"
+clean-targets: ["target", "dbt_modules"]
+
+models:
+  dbt_spark_project:
+    marts:
+      +materialized: table
+    staging:
+      +materialized: view
