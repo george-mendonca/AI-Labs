@@ -1,11 +1,12 @@
 
 <h1 align="center">Laboratórios de AI (AI/ML/GenAI)</h1>
 
-<div align="center">
+<div align="left">
   <strong>🚀 Descrição do Repositório 📚</strong>
 </div>
 
-<div align="center">
+<div align="left">
+  </p>
   <p>Um repositório incrível que já tem um projeto espetacular! 🎉</p>
   <p>Aqui você encontrará informações sobre o projeto, tecnologias utilizadas, instruções para configurar o ambiente de desenvolvimento e muito mais.</p>
   <p>Explore, colabore e divirta-se! 😄</p>
