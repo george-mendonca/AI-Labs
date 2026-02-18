@@ -1,0 +1,102 @@
+# 🧠 Machine Learning Lab --- Detecção de Spam
+
+[![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
+[![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-ML-orange.svg)](https://scikit-learn.org/)
+[![NLP](https://img.shields.io/badge/NLP-TFIDF-green.svg)]() [![Machine
+Learning](https://img.shields.io/badge/Machine-Learning-red.svg)]()
+[![Status](https://img.shields.io/badge/Status-Educational%20Lab-success.svg)]()
+
+Projeto educacional focado em Classificação Binária aplicada a NLP,
+utilizando Regressão Logística + TF-IDF.
+
+------------------------------------------------------------------------
+
+## 🎯 Problema
+
+Classificar mensagens como:
+
+-   0 → Não Spam
+-   1 → Spam
+
+Aplicável em filtros de e-mail, antifraude e moderação automática.
+
+------------------------------------------------------------------------
+
+## 🧠 Fundamento Matemático --- Regressão Logística
+
+A Regressão Logística estima:
+
+P(y=1\|x) = 1 / (1 + e\^-(β0 + β1x1 + ... + βnxn))
+
+Onde: - x = Vetor TF-IDF - β = Pesos aprendidos - Saída entre 0 e 1
+
+Decisão: Se P ≥ 0.5 → Spam Se P \< 0.5 → Não Spam
+
+------------------------------------------------------------------------
+
+## 📁 Estrutura
+
+ml-classificacao-spam/ │ ├── classificacao_spam_simple.py ├──
+classificacao_spam.py ├── gerar_dataset.py ├── requirements.txt └──
+README.md
+
+------------------------------------------------------------------------
+
+## 🚀 Como Executar
+
+### 1️⃣ Criar Ambiente Virtual
+
+python -m venv venv
+
+Ativar:
+
+Windows: venv`\Scripts`{=tex}`\activate`{=tex}
+
+Linux/Mac: source venv/bin/activate
+
+------------------------------------------------------------------------
+
+### 2️⃣ Instalar Dependências
+
+requirements.txt:
+
+scikit-learn numpy pandas
+
+Instalar:
+
+pip install -r requirements.txt
+
+------------------------------------------------------------------------
+
+### 3️⃣ Executar
+
+python classificacao_spam_simple.py python classificacao_spam.py
+
+------------------------------------------------------------------------
+
+## 📊 Conceitos Demonstrados
+
+-   Classificação Binária
+-   NLP
+-   TF-IDF
+-   Regressão Logística
+-   Cross-Validation
+-   Pipeline
+-   Prevenção de Data Leakage
+
+------------------------------------------------------------------------
+
+## 🤝 Contribuição
+
+1.  Fork
+2.  Criar branch
+3.  Commit
+4.  Push
+5.  Pull Request
+
+------------------------------------------------------------------------
+
+## 👨‍💻 Autor
+
+George Mendonça\
+AI • Data • Machine Learning • GenAI • LLMs • Data Governance • Data and Applications Architectures
