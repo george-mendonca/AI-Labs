@@ -1,102 +1,226 @@
-# 🧠 Machine Learning Lab --- Detecção de Spam
+✅ Aprendizagem por Classificação — Detecção de Spam
+🎯 Problema
 
-[![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
-[![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-ML-orange.svg)](https://scikit-learn.org/)
-[![NLP](https://img.shields.io/badge/NLP-TFIDF-green.svg)]() [![Machine
-Learning](https://img.shields.io/badge/Machine-Learning-red.svg)]()
-[![Status](https://img.shields.io/badge/Status-Educational%20Lab-success.svg)]()
+Classificar mensagens de texto como:
 
-Projeto educacional focado em Classificação Binária aplicada a NLP,
-utilizando Regressão Logística + TF-IDF.
+0 → Não Spam
 
-------------------------------------------------------------------------
+1 → Spam
 
-## 🎯 Problema
+Trata-se de um problema clássico de Aprendizagem Supervisionada, mais especificamente de Classificação Binária, amplamente utilizado em aplicações reais como filtros de e-mail, mensagens SMS, chatbots e sistemas antifraude.
 
-Classificar mensagens como:
+🧠 Modelo Utilizado
 
--   0 → Não Spam
--   1 → Spam
+Regressão Logística
 
-Aplicável em filtros de e-mail, antifraude e moderação automática.
+Aplicada sobre vetores numéricos derivados de texto (NLP)
 
-------------------------------------------------------------------------
+Implementação com scikit-learn
 
-## 🧠 Fundamento Matemático --- Regressão Logística
+💻 Implementação 1 — classificacao_spam_simple.py
 
-A Regressão Logística estima:
+Esta versão implementa uma abordagem direta e objetiva para classificação de spam.
 
-P(y=1\|x) = 1 / (1 + e\^-(β0 + β1x1 + ... + βnxn))
+Principais características:
 
-Onde: - x = Vetor TF-IDF - β = Pesos aprendidos - Saída entre 0 e 1
+Dataset simples criado manualmente
 
-Decisão: Se P ≥ 0.5 → Spam Se P \< 0.5 → Não Spam
+Vetorização básica com CountVectorizer
 
-------------------------------------------------------------------------
+Separação treino/teste
 
-## 📁 Estrutura
+Modelo de Regressão Logística
 
-ml-classificacao-spam/ │ ├── classificacao_spam_simple.py ├──
-classificacao_spam.py ├── gerar_dataset.py ├── requirements.txt └──
-README.md
+Avaliação com métricas padrão
 
-------------------------------------------------------------------------
+Fluxo:
 
-## 🚀 Como Executar
+Criação do dataset
 
-### 1️⃣ Criar Ambiente Virtual
+Vetorização do texto
 
-python -m venv venv
+Treinamento do modelo
 
-Ativar:
+Avaliação com:
 
-Windows: venv`\Scripts`{=tex}`\activate`{=tex}
+Precisão
 
-Linux/Mac: source venv/bin/activate
+Recall
 
-------------------------------------------------------------------------
+F1-score
 
-### 2️⃣ Instalar Dependências
+Acurácia
 
-requirements.txt:
+Essa abordagem demonstra o pipeline mínimo funcional para um problema de NLP.
 
-scikit-learn numpy pandas
+💻 Implementação 2 — classificacao_spam.py
 
-Instalar:
+Esta versão evolui estruturalmente o projeto, tornando-o mais próximo de um padrão profissional utilizado em produção.
 
-pip install -r requirements.txt
+Ela introduz melhorias arquiteturais, estatísticas e organizacionais.
 
-------------------------------------------------------------------------
+🔹 1. Classe GerarDataset
 
-### 3️⃣ Executar
+Arquivo relacionado: gerar_dataset.py
 
-python classificacao_spam_simple.py python classificacao_spam.py
+Foi criada uma classe responsável por gerar dinamicamente datasets sintéticos de mensagens classificadas como spam (1) ou não spam (0).
 
-------------------------------------------------------------------------
+Características:
 
-## 📊 Conceitos Demonstrados
+Método @staticmethod gerar_dataset
 
--   Classificação Binária
--   NLP
--   TF-IDF
--   Regressão Logística
--   Cross-Validation
--   Pipeline
--   Prevenção de Data Leakage
+Permite gerar dataset sem instanciar a classe
 
-------------------------------------------------------------------------
+Controle de:
 
-## 🤝 Contribuição
+Tamanho do dataset
 
-1.  Fork
-2.  Criar branch
-3.  Commit
-4.  Push
-5.  Pull Request
+Proporção de spam (ex: 55%)
 
-------------------------------------------------------------------------
+Inclusão de:
 
-## 👨‍💻 Autor
+Frases realistas
 
-George Mendonça\
-AI • Data • Machine Learning • GenAI • LLMs • Data Governance • Data and Applications Architectures
+Frases ambíguas
+
+Ruído linguístico (erros de digitação e variações)
+
+Benefício
+
+O problema deixa de ser trivial e se aproxima mais de cenários reais de NLP, tornando o modelo mais robusto.
+
+🔹 2. Estruturação com Pipeline
+
+Foi adotado o Pipeline do scikit-learn para encadear:
+
+Vetorização com TF-IDF
+
+Classificação com Regressão Logística
+
+Benefícios:
+
+Garante aplicação consistente no treino e teste
+
+Evita data leakage
+
+Melhora organização do código
+
+Aproxima a solução de padrões produtivos
+
+🔹 3. Melhoria na Vetorização
+
+Substituição de:
+
+CountVectorizer → TfidfVectorizer
+
+Melhorias implementadas:
+
+Uso de ngram_range=(1,2) (unigrams + bigrams)
+
+Melhor ponderação da importância das palavras
+
+Redução do impacto de termos muito frequentes
+
+Maior robustez contra ruído linguístico
+
+🔹 4. Configuração do Modelo
+
+class_weight='balanced'
+
+Prepara o modelo para possíveis desequilíbrios
+
+max_iter=1000
+
+Garante convergência em datasets maiores
+
+Separação explícita:
+
+X → Variáveis independentes
+
+y → Variável alvo
+
+🔹 5. Estratégia de Avaliação
+📌 Divisão Treino/Teste
+
+Uso de train_test_split
+
+random_state para reprodutibilidade
+
+Possibilidade de uso de stratify=y para manter proporção das classes
+
+📌 Relatório de Classificação
+
+Exibição de métricas:
+
+Precisão
+
+Recall
+
+F1-score
+
+Acurácia
+
+Permite análise detalhada por classe:
+
+Spam
+
+Não Spam
+
+🔹 6. Validação Cruzada (Cross-Validation)
+
+Aplicação de:
+
+cross_val_score
+
+
+Utilizando a Pipeline completa.
+
+Benefícios:
+
+Vetorização recalculada dentro de cada fold
+
+Evita vazamento de dados
+
+Estimativa mais robusta da generalização
+
+Acurácia média como indicador de estabilidade do modelo
+
+🏗 Estrutura do Projeto
+ml-classificacao-spam/
+│
+├── classificacao_spam_simple.py
+├── classificacao_spam.py
+├── gerar_dataset.py
+└── README.md
+
+📊 Conceitos de Machine Learning Aplicados
+
+Classificação Binária
+
+NLP (Processamento de Linguagem Natural)
+
+TF-IDF
+
+Regressão Logística
+
+Balanceamento de classes
+
+Cross-Validation
+
+Prevenção de Data Leakage
+
+Estruturação com Pipeline
+
+🎓 Objetivo Educacional
+
+Este laboratório demonstra:
+
+Evolução incremental de um projeto de ML
+
+Boas práticas estruturais
+
+Separação de responsabilidades
+
+Avaliação estatística adequada
+
+Preparação para cenários reais
