@@ -169,7 +169,7 @@ O problema deixa de ser trivial e se aproxima mais de cenários reais de NLP, to
 ### 1️⃣ Criar Ambiente Virtual
 
 ```bash
-python -m venv venv
+py -m venv venv
 ```
 **Ativar Windows**:
 
